@@ -1,0 +1,38 @@
+/* Базовые настройки стилей для всей страницы */
+:root {
+    /* Цвет общего тона страницы (темно-синий) */
+    --primary-color: #0533af;
+    /* Цвет текста */
+    --text-color__on-blue: #e6d4d4;
+    --text-color__on-white: #073b6f;
+    --text-color__titles: #101112;
+    --text-color__placeholder: #6c757d;
+    /* Цвет фона */
+    --background-color: #eff4f5;
+
+    /* Цвета для темной темы */
+    --primary-color__on-dark: #2563eb;
+    /* Цвет текста */
+    --text-color__on-blue__on-dark: #f3f4f6;
+    --text-color__on-white__on-dark: #e5e7eb;
+    --text-color__titles__on-dark: #f9fafb;
+    --text-color__placeholder__on-dark: #9ca3af;
+    /* Цвет фона */
+    --background-color__on-dark: #111827;
+}
+
+*,
+*::before,
+*::after,
+h1, h2, h3, h4, h5, h6,p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}

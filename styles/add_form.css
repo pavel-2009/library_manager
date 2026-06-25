@@ -1,0 +1,140 @@
+/* Стили для формы добавления книги */
+
+
+.add_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+
+    border-radius: 12px;
+}
+
+.add_form__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.add_form__title-svg {
+    width: 26px;
+    height: 26px;
+    color: var(--text-color__on-blue);
+    border-radius: 20%;
+    background-color: var(--primary-color);
+}
+
+.add_form__title h2 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.add_form__form {
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-color__placeholder);
+    pointer-events: none;
+}
+
+.add_form__form input {
+    padding: 8px 10px 8px 38px;
+    border: 1px solid var(--text-color__placeholder);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-color__titles);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add_form__form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color__titles);
+}
+
+/* Стили для меню опции Статус */
+.add_form__status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.add_form__status-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color__titles);
+}
+
+.add_form__status-select {
+    width: 70%;
+    height: 38px;
+    border-radius: 8px;
+    padding: 0 10px;
+    color: var(--text-color__titles);
+    border: 1px solid var(--text-color__placeholder);
+    background-color: #ffffff;
+    font-size: 14px;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 50%),
+                      linear-gradient(135deg, var(--primary-color) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 3px), calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.add_form__status-select option {
+    padding: 8px;
+    color: var(--text-color__titles);
+    background-color: #ffffff;
+}
+
+.add_form__form-button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: var(--text-color__on-blue);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.add_form__form-button:hover {
+    background-color: #0a4d8f;
+    transform: translateY(-1px);
+}
+
+.add_form__form-button:active {
+    transform: translateY(0);
+}

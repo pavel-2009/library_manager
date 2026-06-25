@@ -1,0 +1,6 @@
+main {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    /* margin-top: 16px; */
+    padding: 8px;
+}
