@@ -1,9 +1,9 @@
 /* Базовые настройки стилей для всей страницы */
 :root {
     /* Цвет общего тона страницы (темно-синий) */
-    --primary-color: #0533af;
+    --primary-color: #0f43d3;
     /* Цвет текста */
-    --text-color__on-blue: #e6d4d4;
+    --text-color__on-blue: #d3c8e4;
     --text-color__on-white: #073b6f;
     --text-color__titles: #101112;
     --text-color__placeholder: #6c757d;
@@ -20,7 +20,7 @@
     /* Цвет фона */
     --background-color__on-dark: #111827;
 }
-
+Pashka11221983
 *,
 *::before,
 *::after,

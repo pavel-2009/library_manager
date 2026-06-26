@@ -1,0 +1,66 @@
+/* Стили для секции статистики */
+
+.basic_statistics {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 6px 6px 6px;
+    gap: 10px;
+}
+
+.books_statistics {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    justify-content: space_around;
+    width: 100%;
+    padding: 5px 6px;
+    border: 1px solid rgba(15, 67, 211, 0.2);
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.books_statistics__all-img {
+    color: #a0069e;
+    padding: 4px;
+    background-color: rgba(174, 11, 199, 0.1);
+    border-radius: 10px;
+}
+
+.books_statistics__read-img {
+    color: #07a133;
+    padding: 4px;
+    background-color: rgba(6, 183, 56, 0.1);
+    border-radius: 10px;
+}
+
+.books_statistics__unread-img {
+    color: #f5a623;
+    padding: 4px;
+    background-color: rgba(245, 166, 35, 0.1);
+    border-radius: 10px;
+}
+
+.books_statistics__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+    min-height: 34px;
+}
+
+.books_statistics__h3 {
+    font-size: 8px;
+    line-height: 1.1;
+    color: var(--text-color__on-white);
+    margin: 0;
+}
+
+.books_statistics__p {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--text-color__on-white);
+    margin: 0;
+}

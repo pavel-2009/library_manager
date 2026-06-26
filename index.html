@@ -29,18 +29,6 @@
         </button>
     </header>
 
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('#site-nav');
-
-        if (navToggle && nav) {
-            navToggle.addEventListener('click', () => {
-                const isOpen = nav.classList.toggle('is-open');
-                navToggle.setAttribute('aria-expanded', String(isOpen));
-            });
-        }
-    </script>
-
     <main class="main">
         <section class="add_form">
             <div class="add_form__title">
@@ -76,6 +64,7 @@
 
         <article class="book_search">
             <input type="text" class="book_search__input" placeholder="Поиск книги">
+            <svg class="book_search__filters_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-funnel-icon lucide-funnel"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"/></svg>
             <div class="filters">
                 <label for="genre" class="filters__label">Название:</label>
                 <input type="text" id="genre" class="filters__input">
@@ -93,27 +82,27 @@
         </article>
 
         <article class="basic_statistics">
-            <div class="books_statistics__all">
-                <img src="" alt="" class="books_statistics__all-img">
-                <div class="books_statistics__all-text">
-                    <h3 class="books_statistics__all-h3">Всего книг</h3>
-                    <p class="books_statistics__all-p">0</p>
+            <div class="books_statistics">
+                <svg class="books_statistics__all-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-marked-icon lucide-book-marked"><path d="M10 2v8l3-3 3 3V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>                
+                <div class="books_statistics__text">
+                    <p class="books_statistics__h3">Всего книг</p>
+                    <p class="books_statistics__p">0</p>
                 </div>
             </div>
 
-            <div class="books_statistics__read">
-                <img src="" alt="" class="books_statistics__read-img">
-                <div class="books_statistics__read-text">
-                    <h3 class="books_statistics__read-h3">Прочитано</h3>
-                    <p class="books_statistics__read-p">0</p>
+            <div class="books_statistics">
+                <svg class="books_statistics__read-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
+                <div class="books_statistics__text">
+                    <p class="books_statistics__h3">Прочитано</p>
+                    <p class="books_statistics__p">0</p>
                 </div>
             </div>
 
-            <div class="books_statistics__unread">
-                <img src="" alt="" class="books_statistics__unread-img">
-                <div class="books_statistics__unread-text">
-                    <h3 class="books_statistics__unread-h3">Не прочитано</h3>
-                    <p class="books_statistics__unread-p">0</p>
+            <div class="books_statistics">
+                <svg class="books_statistics__unread-img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock-icon lucide-clock"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div class="books_statistics__text">
+                    <p class="books_statistics__h3">Не прочитано</p>
+                    <p class="books_statistics__p">0</p>
                 </div>
             </div>
         </article>
