@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px 6px 6px 6px;
+    margin-top: 20px;
 }
 
 .book_list__item {
@@ -45,7 +45,7 @@
 }
 
 .book_list__book_title {
-    font-size: 13px;
+    font-size: var(--font-size__book-title);
     max-width: 100%;
     font-weight: 700;
     color: var(--text-color__on-white);
@@ -54,7 +54,7 @@
 }
 
 .book_list__book_author {
-    font-size: 11px;
+    font-size: var(--font-size__book-author);
     color: var(--text-color__placeholder);
     margin: 0;
 }

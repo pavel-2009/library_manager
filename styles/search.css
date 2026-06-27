@@ -5,7 +5,7 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  margin: 16px 6px 6px 6px;
+  margin-top: 20px;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -30,8 +30,8 @@
 .book_search__filters_icon {
   cursor: pointer;
   margin-left: 0;
-  width: 22px;
-  height: 22px;
+  width: 37px;
+  height: 37px;
   border: 1px solid rgba(15, 67, 211, 0.2);
   border-radius: 10px;
   padding: 8px;

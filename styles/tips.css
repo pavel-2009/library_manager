@@ -1,0 +1,32 @@
+/* Стили для блока советов */
+
+.tips {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgba(15, 67, 211, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 67, 211, 0.06);
+}
+
+.tips__title {
+    font-size: var(--font-size__heading);
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.tips__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 18px;
+}
+
+.tips__item {
+    font-size: var(--font-size__placeholder);
+    line-height: 1.4;
+    color: var(--text-color__on-white);
+}

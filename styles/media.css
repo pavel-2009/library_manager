@@ -1,0 +1,77 @@
+/* Стили для медиа-запросов */
+
+@media (min-width: 768px) {
+    :root {
+        --font-size__heading: 20px;
+        --font-size__placeholder: 17px;
+        --font-size__stat-heading: 12px;
+        --font-size__stat-value: 17px;
+        --font-size__book-title: 17px;
+        --font-size__book-author: 15px;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        grid-template-rows: 60px 80px 1fr;
+        gap: 20px;
+
+        grid-template-areas: "aside search"
+                             "aside stats"
+                             "aside main";
+    }
+
+    .aside {
+        grid-area: aside;
+    }
+
+    .book_search {
+        grid-area: search;
+        margin-top: 0;
+    }
+
+    .basic_statistics {
+        grid-area: stats;
+        margin-top: 0;
+        display: flex;
+        gap: 0;
+    }
+
+    .books_statistics {
+        border-radius: 0;
+        border: none;
+        padding: 10px 12px;
+    }
+
+    .books_statistics:nth-child(1) {
+        border-right: 1px solid rgba(15, 67, 211, 0.2);
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .books_statistics:nth-child(3) {
+        border-left: 1px solid rgba(15, 67, 211, 0.2);
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .book_list {
+        grid-area: main;
+        margin-top: 0;
+    }
+
+    .books_statistics__all-img,
+    .books_statistics__read-img,
+    .books_statistics__unread-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .books_statistics__h3 {
+        font-size: var(--font-size__stat-heading);
+    }
+
+    .books_statistics__p {
+        font-size: var(--font-size__stat-value);
+    }
+}

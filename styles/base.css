@@ -10,6 +10,14 @@
     /* Цвет фона */
     --background-color: #eff4f5;
 
+    /* Размеры шрифтов для адаптивной типографики */
+    --font-size__heading: 15px;
+    --font-size__placeholder: 14px;
+    --font-size__stat-heading: 8px;
+    --font-size__stat-value: 14px;
+    --font-size__book-title: 13px;
+    --font-size__book-author: 11px;
+
     /* Цвета для темной темы */
     --primary-color__on-dark: #2563eb;
     /* Цвет текста */
@@ -20,7 +28,7 @@
     /* Цвет фона */
     --background-color__on-dark: #111827;
 }
-Pashka11221983
+
 *,
 *::before,
 *::after,
@@ -33,6 +41,6 @@ h1, h2, h3, h4, h5, h6,p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color__on-blue);
     line-height: 1.6;
 }

@@ -3,7 +3,7 @@
 .basic_statistics {
     display: flex;
     justify-content: space-between;
-    margin: 20px 6px 6px 6px;
+    margin-top: 20px;
     gap: 10px;
 }
 
@@ -51,14 +51,14 @@
 }
 
 .books_statistics__h3 {
-    font-size: 8px;
+    font-size: var(--font-size__stat-heading);
     line-height: 1.1;
     color: var(--text-color__on-white);
     margin: 0;
 }
 
 .books_statistics__p {
-    font-size: 14px;
+    font-size: var(--font-size__stat-value);
     font-weight: bold;
     line-height: 1;
     color: var(--text-color__on-white);

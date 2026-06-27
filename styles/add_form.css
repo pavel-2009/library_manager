@@ -2,6 +2,8 @@
 
 
 .add_form {
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -9,6 +11,8 @@
     padding: 16px;
     background-color: #ffffff;
     border-radius: 12px;
+
+    margin-bottom: 16px;
 
     border-radius: 12px;
 }
@@ -28,7 +32,7 @@
 }
 
 .add_form__title h2 {
-    font-size: 15px;
+    font-size: var(--font-size__heading);
     font-weight: 800;
     color: var(--primary-color);
 }
@@ -59,7 +63,7 @@
     padding: 8px 10px 8px 38px;
     border: 1px solid var(--text-color__placeholder);
     border-radius: 8px;
-    font-size: 14px;
+    font-size: var(--font-size__placeholder);
     color: var(--text-color__titles);
     width: 100%;
     box-sizing: border-box;
