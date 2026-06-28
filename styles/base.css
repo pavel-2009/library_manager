@@ -1,22 +1,25 @@
 /* Базовые настройки стилей для всей страницы */
 :root {
-    /* Цвет общего тона страницы (темно-синий) */
-    --primary-color: #0f43d3;
+    /* Основные цвета */
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #06b6d4;
     /* Цвет текста */
-    --text-color__on-blue: #d3c8e4;
-    --text-color__on-white: #073b6f;
-    --text-color__titles: #101112;
-    --text-color__placeholder: #6c757d;
+    --text-color__on-blue: #f1f5f9;
+    --text-color__on-white: #1e293b;
+    --text-color__titles: #0f172a;
+    --text-color__placeholder: #64748b;
     /* Цвет фона */
-    --background-color: #eff4f5;
+    --background-color: #f8fafc;
+    --surface-color: #ffffff;
 
     /* Размеры шрифтов для адаптивной типографики */
-    --font-size__heading: 15px;
-    --font-size__placeholder: 14px;
-    --font-size__stat-heading: 8px;
-    --font-size__stat-value: 14px;
-    --font-size__book-title: 13px;
-    --font-size__book-author: 11px;
+    --font-size__heading: 16px;
+    --font-size__placeholder: 15px;
+    --font-size__stat-heading: 11px;
+    --font-size__stat-value: 15px;
+    --font-size__book-title: 14px;
+    --font-size__book-author: 12px;
 
     /* Цвета для темной темы */
     --primary-color__on-dark: #2563eb;
@@ -39,8 +42,19 @@ h1, h2, h3, h4, h5, h6,p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     color: var(--text-color__on-blue);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex-shrink: 0;
 }

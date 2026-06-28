@@ -2,8 +2,8 @@
 
 header {
   background-color: var(--primary-color);
-  padding: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 18px 20px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
   box-sizing: border-box;
 
   display: flex;
@@ -14,9 +14,10 @@ header {
 
 header h1 {
   color: var(--text-color__on-blue);
-  font-size: 19px;
+  font-size: 20px;
+  font-weight: 700;
   margin: 0;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .title {
@@ -81,10 +82,13 @@ nav.is-open {
   padding: 10px 16px;
   text-align: center;
   border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+.nav_item:hover,
 .nav_item:active {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .api__download {

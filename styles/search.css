@@ -13,31 +13,39 @@
 .book_search__input {
   flex: 1;
   width: 80%;
-  padding: 10px 12px;
-  border: 1px solid rgba(15, 67, 211, 0.2);
+  padding: 10px 14px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 10px;
   box-shadow: none;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-color__on-white);
-  background-color: #fff;
+  background-color: var(--surface-color);
+  transition: border-color 0.2s ease;
 }
 
 .book_search__input:focus {
   outline: none;
   border-color: var(--primary-color);
+  background-color: var(--surface-color);
 }
 
 .book_search__filters_icon {
   cursor: pointer;
   margin-left: 0;
-  width: 37px;
-  height: 37px;
-  border: 1px solid rgba(15, 67, 211, 0.2);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 10px;
   padding: 8px;
   box-shadow: none;
-  background-color: white;
+  background-color: var(--surface-color);
   color: var(--primary-color);
+  transition: border-color 0.2s ease;
+}
+
+.book_search__filters_icon:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(37, 99, 235, 0.05);
 }
 
 .filters {
@@ -47,10 +55,10 @@
   gap: 8px;
   width: 100%;
   margin-top: 8px;
-  padding: 10px 12px;
-  border: 1px solid rgba(15, 67, 211, 0.15);
+  padding: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #f8fafc;
 }
 
 .filters__label {
@@ -60,16 +68,18 @@
 
 .filters__input,
 .filters__select {
-  padding: 8px 10px;
-  border: 1px solid rgba(15, 67, 211, 0.2);
+  padding: 8px 12px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--surface-color);
   color: var(--text-color__on-white);
   font-size: 14px;
+  transition: border-color 0.2s ease;
 }
 
 .filters__input:focus,
 .filters__select:focus {
   outline: none;
   border-color: var(--primary-color);
+  background-color: var(--surface-color);
 }

@@ -10,13 +10,18 @@
 .book_list__item {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     justify-content: space-between;
-    padding: 12px;
-    border: 1px solid rgba(15, 67, 211, 0.16);
+    padding: 14px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(15, 67, 211, 0.06);
-    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06);
+    background-color: var(--surface-color);
+    transition: box-shadow 0.2s ease;
+}
+
+.book_list__item:hover {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
 }
 
 .book_list__book {
@@ -47,10 +52,10 @@
 .book_list__book_title {
     font-size: var(--font-size__book-title);
     max-width: 100%;
-    font-weight: 700;
-    color: var(--text-color__on-white);
+    font-weight: 600;
+    color: var(--text-color__titles);
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .book_list__book_author {
@@ -73,13 +78,13 @@
     align-self: flex-start;
     align-items: center;
     width: fit-content;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
-    color: #08c02a;
+    color: #10b981;
     margin: 2px 0 0;
-    padding: 4px 8px;
-    background-color: rgba(8, 194, 42, 0.08);
-    border: 1px solid rgba(8, 194, 42, 0.16);
+    padding: 4px 10px;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 999px;
 }
 
@@ -100,25 +105,30 @@
     justify-content: center;
     gap: 6px;
     cursor: pointer;
-
-    background-color: rgba(8, 194, 42, 0.06);
-    border: 1px solid rgba(8, 194, 42, 0.16);
+    background-color: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 10px;
-
     width: 100%;
-    padding: 8px 6px;
+    padding: 8px 8px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.book_list__change_status:hover {
+    background-color: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
 }
 
 .book_list__change_status-icon {
-    color: #08c02a;
-    width: 20px;
-    height: 20px;
+    color: #10b981;
+    width: 18px;
+    height: 18px;
 }
 
 .book_list__change_status_text {
-    font-size: 12px;
-    color: #08c02a;
+    font-size: 13px;
+    color: #10b981;
     margin: 0;
+    font-weight: 500;
 }
 
 .book_list__delete_book {
@@ -128,23 +138,28 @@
     justify-content: center;
     gap: 6px;
     cursor: pointer;
-
-    background-color: rgba(255, 0, 0, 0.06);
-    border: 1px solid rgba(255, 0, 0, 0.16);
+    background-color: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
     border-radius: 10px;
-
     width: 100%;
-    padding: 8px 6px;
+    padding: 8px 8px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.book_list__delete_book:hover {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.3);
 }
 
 .book_list__delete_book-icon {
-    color: #ff0000;
-    width: 20px;
-    height: 20px;
+    color: #ef4444;
+    width: 18px;
+    height: 18px;
 }
 
 .book_list__delete_book_text {
-    font-size: 12px;
-    color: #ff0000;
+    font-size: 13px;
+    color: #ef4444;
     margin: 0;
+    font-weight: 500;
 }
