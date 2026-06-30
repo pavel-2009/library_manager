@@ -40,6 +40,15 @@ header svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible,
+.api__download:hover,
+.api__download:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.95;
 }
 
 /* При нажатии на кнопку навигации плавно появляется навигация */
@@ -83,12 +92,13 @@ nav.is-open {
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .nav_item:hover,
 .nav_item:active {
   background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(2px);
 }
 
 .api__download {
@@ -98,6 +108,7 @@ nav.is-open {
   padding: 0;
   display: flex;
   align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 

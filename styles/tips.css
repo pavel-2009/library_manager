@@ -10,6 +10,12 @@
     border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 12px;
     box-shadow: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tips:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.08);
 }
 
 .tips__title {

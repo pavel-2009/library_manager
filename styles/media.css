@@ -10,6 +10,10 @@
         --font-size__book-author: 13px;
     }
 
+    .books_statistics__h3 {
+        display: block;
+    }
+
     main {
         display: grid;
         grid-template-columns: 300px 1fr;
@@ -64,6 +68,32 @@
     .books_statistics__unread-img {
         width: 44px;
         height: 44px;
+    }
+}
+
+@media (max-width: 460px) {
+    .basic_statistics {
+        flex-direction: row;
+    }
+
+    .books_statistics {
+        justify-content: center;
+        gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .books_statistics__text {
+        min-height: auto;
+        gap: 2px;
+        align-items: center;
+    }
+
+    .books_statistics__h3 {
+        display: none;
+    }
+
+    .books_statistics__p {
+        font-size: 18px;
     }
 }
 

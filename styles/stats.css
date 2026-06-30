@@ -19,11 +19,12 @@
     border-radius: 10px;
     box-shadow: none;
     background-color: var(--surface-color);
-    transition: box-shadow 0.2s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .books_statistics:hover {
     box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
 }
 
 .books_statistics__all-img {

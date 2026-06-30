@@ -20,7 +20,12 @@
   font-size: 15px;
   color: var(--text-color__on-white);
   background-color: var(--surface-color);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.book_search__input:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.06);
 }
 
 .book_search__input:focus {
@@ -40,30 +45,51 @@
   box-shadow: none;
   background-color: var(--surface-color);
   color: var(--primary-color);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .book_search__filters_icon:hover {
   border-color: var(--primary-color);
   background-color: rgba(37, 99, 235, 0.05);
+  transform: rotate(2deg) scale(1.02);
 }
 
 .filters {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   width: 100%;
   margin-top: 8px;
-  padding: 12px;
+  padding: 0 12px;
   border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 10px;
   background-color: #f8fafc;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: max-height 0.28s ease, opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease, box-shadow 0.2s ease, padding 0.24s ease;
+}
+
+.filters.is-open {
+  max-height: 220px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+  padding: 12px;
 }
 
 .filters__label {
   font-size: 14px;
   color: var(--text-color__on-white);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .filters__input,
@@ -74,7 +100,30 @@
   background-color: var(--surface-color);
   color: var(--text-color__on-white);
   font-size: 14px;
-  transition: border-color 0.2s ease;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.filters.is-open .filters__label,
+.filters.is-open .filters__input,
+.filters.is-open .filters__select {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.filters.is-open .filters__label {
+  transition-delay: 0.05s;
+}
+
+.filters.is-open .filters__input,
+.filters.is-open .filters__select {
+  transition-delay: 0.1s;
+}
+
+.filters__input:hover,
+.filters__select:hover {
+  transform: translateY(-1px);
 }
 
 .filters__input:focus,
