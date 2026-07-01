@@ -1,45 +1,48 @@
-import { Library } from './library'
-import { renderBooks } from './render'
+import { Library } from './library.js'
+import { renderBooks } from './render.js'
 
 const library = new Library()
 
-const form = document.querySelector('.add_form__form') as HTMLFormElement
+const form = document.querySelector('.add_form__form') as HTMLFormElement | null
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault()
+if (form) {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
 
-    const titleInput = document.querySelector('.add_form__form-input.title') as HTMLInputElement
-    const authorInput = document.querySelector('.add_form__form-input.author') as HTMLInputElement
-    const pagesInput = document.querySelector('.add_form__form-input.pages') as HTMLInputElement
-    const isReadInput = document.querySelector('label.add_form__status-label') as HTMLLabelElement
+        const titleInput = document.querySelector('.add_form__form-input.title') as HTMLInputElement | null
+        const authorInput = document.querySelector('.add_form__form-input.author') as HTMLInputElement | null
+        const pagesInput = document.querySelector('.add_form__form-input.pages') as HTMLInputElement | null
+        const statusSelect = document.querySelector('.add_form__status-select') as HTMLSelectElement | null
 
-    const title = titleInput.value.trim()
-    const author = authorInput.value.trim()
-    const pages = parseInt(pagesInput.value.trim(), 10)
-    const isRead = isReadInput.textContent === 'Прочитана'
+        if (!titleInput || !authorInput || !pagesInput || !statusSelect) {
+            alert('Не удалось получить форму')
+            return
+        }
 
-    if (!title || !author || isNaN(pages)) {
-        alert('Пожалуйста, заполните все поля формы')
-        return
-    }
+        const title = titleInput.value.trim()
+        const author = authorInput.value.trim()
+        const pages = parseInt(pagesInput.value.trim(), 10)
+        const isRead = statusSelect.value === 'available'
 
-    const newBook = {
-        id: Date.now(),
-        title,
-        author,
-        pages,
-        isRead,
-    }
+        if (!title || !author || isNaN(pages)) {
+            alert('Пожалуйста, заполните все поля формы')
+            return
+        }
 
-    library.addBook(newBook)
+        const newBook = {
+            id: Date.now(),
+            title,
+            author,
+            pages,
+            isRead,
+        }
 
-    renderBooks(library.getAllBooks())
-
-    titleInput.value = ''
-    authorInput.value = ''
-    pagesInput.value = ''
-    isReadInput.textContent = 'Прочитана'
-})
+        library.addBook(newBook)
+        renderBooks(library.getAllBooks())
+        form.reset()
+        statusSelect.value = 'available'
+    })
+}
 
 // Добавляем листенер на всю страницу пр загрузке, чтобы отрисовать книги, если они есть
 document.addEventListener('DOMContentLoaded', () => {

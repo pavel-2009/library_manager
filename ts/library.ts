@@ -1,4 +1,4 @@
-import { Book } from './types'
+import { Book } from './types.js'
 
 export class Library {
     private books: Book[] = []

@@ -8,6 +8,7 @@ export function renderBooks(books) {
         return;
     }
     try {
+        bookList.innerHTML = '';
         books.forEach(book => {
             const bookItem = document.createElement('article');
             bookItem.classList.add('book_item');

@@ -1,4 +1,4 @@
-import { Book } from './types'
+import { Book } from './types.js'
 
 export function renderBooks(books: Book[]): void {
 
@@ -14,6 +14,8 @@ export function renderBooks(books: Book[]): void {
     }
 
     try {
+        bookList.innerHTML = ''
+
         books.forEach(book => {
             const bookItem = document.createElement('article')
             bookItem.classList.add('book_item')
