@@ -81,7 +81,7 @@
     font-size: 11px;
 }
 
-.book_list__book_status {
+.book_list__book_status.read {
     display: inline-flex;
     align-self: flex-start;
     align-items: center;
@@ -93,6 +93,21 @@
     padding: 4px 10px;
     background-color: rgba(16, 185, 129, 0.1);
     border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 999px;
+}
+
+.book_list__book_status.unread {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ef4444;
+    margin: 2px 0 0;
+    padding: 4px 10px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
     border-radius: 999px;
 }
 
