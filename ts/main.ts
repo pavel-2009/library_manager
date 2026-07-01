@@ -40,3 +40,8 @@ form.addEventListener('submit', (event) => {
     pagesInput.value = ''
     isReadInput.textContent = 'Прочитана'
 })
+
+// Добавляем листенер на всю страницу пр загрузке, чтобы отрисовать книги, если они есть
+document.addEventListener('DOMContentLoaded', () => {
+    renderBooks(library.getAllBooks())
+})
