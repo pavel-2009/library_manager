@@ -57,6 +57,12 @@
   transform: rotate(2deg) scale(1.02);
 }
 
+.book_search__filters_icon.active:hover,
+.book_search__filters_icon.active:focus,
+.book_search__filters_icon.active:active {
+  transform: rotate(-2deg) scale(1.02);
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
