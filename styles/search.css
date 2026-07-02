@@ -1,6 +1,6 @@
 /* Стили для секции поиска */
 
-.book_search {
+.book_search__form {
   display: flex;
   justify-content: space-between;
   flex-direction: row;

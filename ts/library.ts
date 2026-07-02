@@ -1,4 +1,4 @@
-import { Book } from './types.js'
+import { Book, BookSearchParams } from './types.js'
 
 export class Library {
     private books: Book[] = []
@@ -11,12 +11,19 @@ export class Library {
         this.books = this.books.filter(book => book.id !== bookId)
     }
 
-    getBooks(condition: (book: Book) => boolean): Book[] {
-        if (typeof condition !== 'function') {
-            throw new Error('Condition must be a function')
+    getBooks(searchParams?: BookSearchParams): Book[] {
+
+        if (!searchParams) {
+            return this.books
         }
 
-        return this.books.filter(condition)
+        return this.books.filter(book => {
+            const matchesTitle = searchParams.title ? book.title.toLowerCase().includes(searchParams.title.toLowerCase()) : true
+            const matchesAuthor = searchParams.author ? book.author.toLowerCase().includes(searchParams.author.toLowerCase()) : true
+            const matchesStatus = searchParams.status ? (searchParams.status === 'available' ? !book.isRead : book.isRead) : true
+
+            return matchesTitle && matchesAuthor && matchesStatus
+        })
     }
 
     getAllBooks(): Book[] {
