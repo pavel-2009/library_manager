@@ -48,7 +48,10 @@
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
-.book_search__filters_icon:hover {
+.book_search__filters_icon:hover,
+.book_search__filters_icon:focus,
+.book_search__filters_icon:active,
+.book_search__filters_icon.active {
   border-color: var(--primary-color);
   background-color: rgba(37, 99, 235, 0.05);
   transform: rotate(2deg) scale(1.02);

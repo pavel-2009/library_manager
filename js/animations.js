@@ -32,6 +32,9 @@ const filterContainer = document.querySelector('.filters');
 if (filterButton && filterContainer) {
     filterButton.addEventListener('click', (event) => {
         event.stopPropagation();
-        filterContainer.classList.toggle('is-open');
+        filterContainer.classList.toggle('is-open')
+
+        filterButton.classList.toggle('active');
+        ;
     });
 }
