@@ -4,7 +4,10 @@ export function renderBooks(books) {
         throw new Error('Book list element not found');
     }
     if (books.length === 0) {
-        bookList.innerHTML = '<p class="book_list__empty">Книги не найдены</p>';
+        const emptyState = document.createElement('p');
+        emptyState.className = 'book_list__empty';
+        emptyState.textContent = 'Книги не найдены';
+        bookList.replaceChildren(emptyState);
         return;
     }
     try {
