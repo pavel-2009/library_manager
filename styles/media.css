@@ -63,6 +63,10 @@
         margin-top: 0;
     }
 
+    .book_list__empty {
+        grid-column: 1 / -1;
+    }
+
     .books_statistics__all-img,
     .books_statistics__read-img,
     .books_statistics__unread-img {
