@@ -1,4 +1,4 @@
-// Базовые типы 
+// Базовые типы
 
 export interface Book {
     id: number
@@ -9,7 +9,8 @@ export interface Book {
 }
 
 export interface BookSearchParams {
-    title?: string;
-    author?: string;
-    status?: 'available' | 'checked_out';
+    query?: string
+    title?: string
+    author?: string
+    isRead?: boolean
 }

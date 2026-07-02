@@ -1,8 +1,77 @@
 import { Library } from './library.js'
 import { renderBooks } from './render.js'
-import { BookSearchParams } from './types.js'
+import { Book, BookSearchParams } from './types.js'
 
 const library = new Library()
+const STORAGE_KEY = 'library-books'
+
+function saveBooks(): void {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(library.getAllBooks()))
+}
+
+function loadBooks(): void {
+    const storedBooks = localStorage.getItem(STORAGE_KEY)
+
+    if (!storedBooks) {
+        return
+    }
+
+    try {
+        const parsedBooks = JSON.parse(storedBooks) as Book[]
+        library.setBooks(parsedBooks)
+    } catch (error) {
+        console.error('Не удалось загрузить книги из LocalStorage:', error)
+    }
+}
+
+function updateStatistics(): void {
+    const statistics = document.querySelectorAll('.books_statistics__p')
+
+    if (statistics.length < 3) {
+        return
+    }
+
+    const books = library.getAllBooks()
+    const readCount = books.filter((book) => book.isRead).length
+    const unreadCount = books.length - readCount
+
+    statistics[0].textContent = String(books.length)
+    statistics[1].textContent = String(readCount)
+    statistics[2].textContent = String(unreadCount)
+}
+
+function getCurrentSearchParams(): BookSearchParams {
+    const searchParams: BookSearchParams = {}
+
+    const searchInput = document.querySelector('.book_search__input') as HTMLInputElement | null
+    const titleInput = document.querySelector('.filters__input.title') as HTMLInputElement | null
+    const authorInput = document.querySelector('.filters__input.author') as HTMLInputElement | null
+    const statusSelect = document.querySelector('.filters__select.status') as HTMLSelectElement | null
+
+    if (searchInput && searchInput.value.trim()) {
+        searchParams.query = searchInput.value.trim()
+    }
+
+    if (titleInput && titleInput.value.trim()) {
+        searchParams.title = titleInput.value.trim()
+    }
+
+    if (authorInput && authorInput.value.trim()) {
+        searchParams.author = authorInput.value.trim()
+    }
+
+    if (statusSelect && statusSelect.value === 'read') {
+        searchParams.isRead = true
+    } else if (statusSelect && statusSelect.value === 'unread') {
+        searchParams.isRead = false
+    }
+
+    return searchParams
+}
+
+function applySearch(): void {
+    renderBooks(library.getBooks(getCurrentSearchParams()))
+}
 
 // === Add form ===
 const form = document.querySelector('.add_form__form') as HTMLFormElement | null
@@ -24,7 +93,7 @@ if (form) {
         const title = titleInput.value.trim()
         const author = authorInput.value.trim()
         const pages = parseInt(pagesInput.value.trim(), 10)
-        const isRead = statusSelect.value === 'available'
+        const isRead = statusSelect.value === 'read'
 
         if (!title || !author || isNaN(pages)) {
             alert('Пожалуйста, заполните все поля формы')
@@ -40,56 +109,78 @@ if (form) {
         }
 
         library.addBook(newBook)
-        renderBooks(library.getAllBooks())
+        saveBooks()
+        applySearch()
+        updateStatistics()
         form.reset()
-        statusSelect.value = 'available'
+        statusSelect.value = 'read'
     })
 }
 
-// Добавляем листенер на всю страницу пр загрузке, чтобы отрисовать книги, если они есть
+// Добавляем листенер на всю страницу при загрузке, чтобы отрисовать книги, если они есть
 document.addEventListener('DOMContentLoaded', () => {
+    loadBooks()
     renderBooks(library.getAllBooks())
+    updateStatistics()
 })
 
-
 // === Search form + filters ===
-const searchForm = document.querySelector('.book_search__form') as HTMLFormElement
+const searchInput = document.querySelector('.book_search__input') as HTMLInputElement | null
+const titleFilterInput = document.querySelector('.filters__input.title') as HTMLInputElement | null
+const authorFilterInput = document.querySelector('.filters__input.author') as HTMLInputElement | null
+const statusFilterSelect = document.querySelector('.filters__select.status') as HTMLSelectElement | null
+const bookList = document.querySelector('.book_list') as HTMLElement | null
 
-if (searchForm) {
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault()
+if (searchInput) {
+    searchInput.addEventListener('input', applySearch)
+}
 
-        const searchInput = document.querySelector('.book_search__input') as HTMLInputElement | null
+if (titleFilterInput) {
+    titleFilterInput.addEventListener('input', applySearch)
+}
 
-        const titleInput = document.querySelector('.filters__input.title') as HTMLInputElement | null
-        const authorInput = document.querySelector('.filters__input.author') as HTMLInputElement | null
-        const statusSelect = document.querySelector('.filters__select.status') as HTMLSelectElement | null
+if (authorFilterInput) {
+    authorFilterInput.addEventListener('input', applySearch)
+}
 
-        if (!titleInput || !authorInput || !statusSelect) {
-            alert('Не удалось получить форму')
+if (statusFilterSelect) {
+    statusFilterSelect.addEventListener('change', applySearch)
+}
+
+if (bookList) {
+    bookList.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement
+        const removeButton = target.closest('.book_list__delete_book')
+        const statusButton = target.closest('.book_list__change_status')
+
+        if (removeButton) {
+            const bookItem = removeButton.closest('.book_list__item') as HTMLElement | null
+            const bookId = Number(bookItem?.dataset.bookId)
+
+            if (!Number.isNaN(bookId)) {
+                library.removeBook(bookId)
+                saveBooks()
+                applySearch()
+                updateStatistics()
+            }
+
             return
         }
 
-        const searchParams: BookSearchParams = {}
+        if (statusButton) {
+            const bookItem = statusButton.closest('.book_list__item') as HTMLElement | null
+            const bookId = Number(bookItem?.dataset.bookId)
 
-        if (searchInput && searchInput.value.trim()) {
-            const searchValue = searchInput.value.trim().toLowerCase()
-            searchParams.title = searchValue
-            searchParams.author = searchValue
+            if (!Number.isNaN(bookId)) {
+                const book = library.getAllBooks().find((item) => item.id === bookId)
+
+                if (book) {
+                    book.isRead = !book.isRead
+                    saveBooks()
+                    applySearch()
+                    updateStatistics()
+                }
+            }
         }
-
-        if (titleInput.value.trim()) {
-            searchParams.title = titleInput.value.trim()
-        }
-
-        if (authorInput.value.trim()) {
-            searchParams.author = authorInput.value.trim()
-        }
-
-        if (statusSelect.value !== 'all') {
-            searchParams.status = statusSelect.value as 'available' | 'checked_out'
-        }
-
-        renderBooks(library.getBooks(searchParams))
     })
 }

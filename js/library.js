@@ -8,15 +8,23 @@ export class Library {
     removeBook(bookId) {
         this.books = this.books.filter(book => book.id !== bookId);
     }
+    setBooks(books) {
+        this.books = books;
+    }
     getBooks(searchParams) {
         if (!searchParams) {
             return this.books;
         }
-        return this.books.filter(book => {
-            const matchesTitle = searchParams.title ? book.title.toLowerCase().includes(searchParams.title.toLowerCase()) : true;
-            const matchesAuthor = searchParams.author ? book.author.toLowerCase().includes(searchParams.author.toLowerCase()) : true;
-            const matchesStatus = searchParams.status ? (searchParams.status === 'available' ? !book.isRead : book.isRead) : true;
-            return matchesTitle && matchesAuthor && matchesStatus;
+        const query = searchParams.query?.trim().toLowerCase();
+        const title = searchParams.title?.trim().toLowerCase();
+        const author = searchParams.author?.trim().toLowerCase();
+        const isRead = searchParams.isRead;
+        return this.books.filter((book) => {
+            const matchesQuery = !query || book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
+            const matchesTitle = !title || book.title.toLowerCase().includes(title);
+            const matchesAuthor = !author || book.author.toLowerCase().includes(author);
+            const matchesReadState = isRead === undefined || book.isRead === isRead;
+            return matchesQuery && matchesTitle && matchesAuthor && matchesReadState;
         });
     }
     getAllBooks() {

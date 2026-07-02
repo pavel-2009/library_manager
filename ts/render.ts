@@ -8,7 +8,7 @@ export function renderBooks(books: Book[]): void {
     }
 
     if (books.length === 0) {
-        bookList.innerHTML = '<p>No books available</p>'
+        bookList.innerHTML = '<p class="book_list__empty">Книги не найдены</p>'
         return
     }
 
@@ -18,6 +18,7 @@ export function renderBooks(books: Book[]): void {
         books.forEach((book) => {
             const bookItem = document.createElement('article')
             bookItem.classList.add('book_list__item')
+            bookItem.dataset.bookId = String(book.id)
 
             bookItem.innerHTML = `
                 <div class="book_list__book">

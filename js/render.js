@@ -4,7 +4,7 @@ export function renderBooks(books) {
         throw new Error('Book list element not found');
     }
     if (books.length === 0) {
-        bookList.innerHTML = '<p>No books available</p>';
+        bookList.innerHTML = '<p class="book_list__empty">Книги не найдены</p>';
         return;
     }
     try {
@@ -12,6 +12,7 @@ export function renderBooks(books) {
         books.forEach((book) => {
             const bookItem = document.createElement('article');
             bookItem.classList.add('book_list__item');
+            bookItem.dataset.bookId = String(book.id);
             bookItem.innerHTML = `
                 <div class="book_list__book">
                     <img
